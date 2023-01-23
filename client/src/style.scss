@@ -7,6 +7,11 @@ $lightGreen : #b9e7e7;
   .container{
     width: 1024px;
 
+    .link{
+      text-decoration: none;
+      color: inherit;
+    }
+
 
     // Login & Register
     .auth{
@@ -64,15 +69,64 @@ $lightGreen : #b9e7e7;
       .container{
         padding: 10px 0px;
         display: flex;
+        align-items: center;
         justify-content: space-between;
         // TODO 18:40 yt vid
 
         .logo{
-
+          img{
+            width: 120px;
+          }
         }
+
         .links{
+          display: flex;
+          align-items: center;
+          gap: 10px;
 
+          h6{
+            font-size: 16px;
+            font-weight: 300;
+          }
+
+          span{
+            cursor: pointer;
+          }
+
+          .write{
+            background-color: $lightGreen;
+            width: 50px;
+            height: 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 300;
+
+            &:hover{
+              width: 48px;
+              height: 28px;
+              color: teal;
+              background-color: whitesmoke;
+              border: 1px solid teal;
+            }
+          }
         }
+      }
+    }
+
+    // Footer
+
+    footer{
+      margin-top: 100px;
+      padding: 20px;
+      background-color: $lightGreen;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      img{
+        height: 50px;
       }
     }
   }
