@@ -71,7 +71,6 @@ $lightGreen : #b9e7e7;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        // TODO 18:40 yt vid
 
         .logo{
           img{
@@ -127,6 +126,109 @@ $lightGreen : #b9e7e7;
       font-size: 12px;
       img{
         height: 50px;
+      }
+    }
+
+    // Home
+
+    .home{
+
+      .posts{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+
+        .post{
+          display: flex;
+          gap: 100px;
+
+          &:nth-child(2n+1){
+            flex-direction: row-reverse;
+          }
+
+          .img{
+            flex: 2;
+
+            img{
+              width: 100%;
+              max-width: 400px;
+              object-fit: cover;
+              box-shadow: -10px 10px $lightGreen;
+            }
+          }
+
+          .content{
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1{
+              font-size: 40px;
+            }
+
+            p{
+              font-size: 26px;
+            }
+
+            button{
+              width: max-content;
+              padding: 10px 20px;
+              border: none;
+              cursor: pointer;
+              background-color: white;
+              border: 1px solid teal;
+              color: teal;
+
+              &:hover{
+                border: 1px solid white;
+                background-color: $lightGreen;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Single 
+
+    .single{
+      display: flex;
+      gap: 50px;
+
+      .content{
+        flex: 5;
+
+        img{
+          width: 100%;
+          height: 500px;
+          object-fit: cover;
+        }
+
+        .user{
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+
+          img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid black;
+          }
+          
+          span{
+            font-weight: bold;
+          }
+        }
+      }
+
+      .menue{
+        flex: 2;
       }
     }
   }
