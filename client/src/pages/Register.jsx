@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [inputs, setInputs] = useState({
@@ -11,41 +11,42 @@ const Register = () => {
   })
   const [err, setErr] = useState(null)
 
+  const navigate = useNavigate()
+
   const handleChange = e => {
     setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
   }
 
-  const registerSubmit = async e => {
-    e.preventDefault()
-
-    let errors = [];
-
-    // Define the fields to check and their corresponding error messages
+  const validateInputs = (inputs) => {
     const fieldsToCheck = {
       username: 'Please enter a username',
       email: 'Please enter an email',
       password: 'Please enter a password'
     };
-
-    // Loop over each field and check if it's empty
+    let errors = [];
     for (let field in fieldsToCheck) {
       if (inputs[field] === '') {
         errors.push(fieldsToCheck[field]);
       }
     }
+    return errors;
+  };
 
+  const registerSubmit = async e => {
+    e.preventDefault();
+    const errors = validateInputs(inputs);
     if (errors.length > 0) {
       setErr(errors);
     } else {
       try {
-        const res = await axios.post('/api/auth/register', inputs)
-        console.log(res)
+        await axios.post('/api/auth/register', inputs);
+        navigate("/login")
         setErr([]); // Clear any previous errors
       } catch (err) {
-        setErr([err.response.data])
+        setErr([err.response.data.message]);
       }
     }
-  }
+  };
 
   return (
     <div className='auth'>
