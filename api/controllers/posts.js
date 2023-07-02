@@ -1,3 +1,3 @@
 export const addPost = (req, res) => {
-  res.json('from Controller')
-}
+  res.json('from Controller');
+};
