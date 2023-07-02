@@ -44,10 +44,10 @@ export const login = (req, res) => {
       data[0].password
     );
 
-    if (!isPassCorrect) return res.status(400).json({ message: "Incorrect password"})
+    if (!isPassCorrect) return res.status(400).json({ message: "Incorrect password" })
 
-    const token = jwt.sign({id: data[0].id}, "jwtKey");
-    const {password, ...other} = data[0];
+    const token = jwt.sign({ id: data[0].id }, "jwtKey");
+    const { password, ...other } = data[0];
 
     res.cookie("access_token", token, {
       httpOnly: true

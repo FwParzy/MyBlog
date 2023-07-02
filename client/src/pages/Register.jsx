@@ -14,7 +14,7 @@ const Register = () => {
   const navigate = useNavigate()
 
   const handleChange = e => {
-    setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
+    setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const validateInputs = (inputs) => {
@@ -52,9 +52,9 @@ const Register = () => {
     <div className='auth'>
       <h1>Register</h1>
       <form>
-        <input required type="text" placeholder='username' name='username' onChange={handleChange}/>
-        <input required type="email" placeholder='email' name='email' onChange={handleChange}/>
-        <input required type="password" placeholder='password' name='password' onChange={handleChange}/>
+        <input required type="text" placeholder='username' name='username' onChange={handleChange} />
+        <input required type="email" placeholder='email' name='email' onChange={handleChange} />
+        <input required type="password" placeholder='password' name='password' onChange={handleChange} />
         <button onClick={registerSubmit}>Register</button>
         {err && err.map((error, index) => <p key={index}>{error}</p>)}
         <span>Do you have an account? <Link to="/login">Login</Link> </span>
