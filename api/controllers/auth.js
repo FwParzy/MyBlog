@@ -44,17 +44,25 @@ export const login = (req, res) => {
       return res.status(400).json({ message: 'Incorrect password' });
 
     const token = jwt.sign({ id: data[0].id }, 'jwtKey');
-    // destructive variable
-    // eslint-disable-next-line no-unused-vars
     const { password, ...other } = data[0];
 
     res
       .cookie('access_token', token, {
         httpOnly: true,
+        sameSite: 'None',
+        secure: true,
       })
       .status(200)
       .json(other);
   });
 };
 
-// export const logout = (req, res) => {};
+export const logout = (req, res) => {
+  res
+    .clearCookie('access_token', {
+      sameSite: 'None',
+      secure: true,
+    })
+    .status(200)
+    .json({ message: 'User has been logged out' });
+};

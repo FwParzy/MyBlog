@@ -40,5 +40,6 @@ module.exports = {
     semi: ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
     'react/no-unescaped-entities': 'off',
+    'no-unused-vars': 'off',
   },
 };
