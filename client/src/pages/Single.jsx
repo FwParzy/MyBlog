@@ -19,6 +19,12 @@ const Single = () => {
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
+    if (!currentUser) {
+      navigate('/login');
+    }
+  }, [currentUser, navigate]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`/posts/${postId}`);
@@ -50,7 +56,8 @@ const Single = () => {
             <span>{post.username}</span>
             <p>{moment(post.date).fromNow()}</p>
           </div>
-          {currentUser.username &&
+          {currentUser &&
+            currentUser.username &&
             post.username &&
             currentUser.username === post.username && (
               <div className="edit">
