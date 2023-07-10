@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "eslint-fix": "npm --prefix ./api run lint -- --fix && npm --prefix ./client run lint -- --fix"
+  },
   "dependencies": {
     "moment": "^2.29.4",
     "react-quill": "^2.0.0"
